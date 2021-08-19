@@ -13,7 +13,7 @@ jobs:
       MACOS_CERTIFICATE_PWD: ${{ secrets.MACOS_CERTIFICATE_PWD }}
       MACOS_KEYCHAIN_PWD: ${{ secrets.MACOS_KEYCHAIN_PWD }}
       MACOS_APP_SPECIFIC_PWD: ${{ secrets.MACOS_KEYCHAIN_PWD }}
-      DEVELOPER_DIR: /Applications/Xcode_13.0.app/Contents/Developer
+      # DEVELOPER_DIR: /Applications/Xcode_13.0.app/Contents/Developer
     name: Package for ${{ matrix.for }}
     runs-on: ${{ matrix.os }}
     strategy:
@@ -34,6 +34,7 @@ jobs:
         working-directory: ./packages/cli
         if: ${{matrix.os == 'macos-latest'}}
         run: |
+          ls /Applications/Xcode_13.0.app
           xcodebuild -version
           security find-identity -v
           echo $MACOS_CERTIFICATE | base64 --decode > certificate.p12
