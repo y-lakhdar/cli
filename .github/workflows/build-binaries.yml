@@ -31,7 +31,7 @@ jobs:
         with:
           node-version: '14'
       - name: Sign Executable (macOS)
-        working-directory: ./packages/cli/dist/macos
+        working-directory: ./packages/cli
         if: ${{matrix.os == 'macos-latest'}}
         run: |
-          pwd
+          xcrun --version
