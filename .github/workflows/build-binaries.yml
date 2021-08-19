@@ -32,7 +32,7 @@ jobs:
           node-version: '14'
       - name: Sign Executable (macOS)
         working-directory: ./packages/cli
-        if: ${{matrix.os == 'macos-latest'}}
+        if: ${{matrix.os == 'macos-11'}}
         run: |
           ls -n /Applications/ | grep Xcode*
           xcodebuild -version
