@@ -30,12 +30,8 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - uses: maxim-lobanov/setup-xcode@v1
-        with:
-          xcode-version: latest-stable
       - name: Sign Executable (macOS)
         working-directory: ./packages/cli/dist/macos
         if: ${{matrix.os == 'macos-latest'}}
         run: |
-          ls /Applications/
-          xcrun --version
+          pwd
