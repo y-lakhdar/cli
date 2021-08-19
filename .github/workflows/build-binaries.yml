@@ -34,7 +34,7 @@ jobs:
         working-directory: ./packages/cli
         if: ${{matrix.os == 'macos-latest'}}
         run: |
-          ls /Applications/Xcode_13.0.app
+          ls -n /Applications/ | grep Xcode*
           xcodebuild -version
           security find-identity -v
           echo $MACOS_CERTIFICATE | base64 --decode > certificate.p12
