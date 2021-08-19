@@ -33,4 +33,4 @@ jobs:
         working-directory: ./packages/cli/dist/macos
         if: ${{matrix.os == 'macos-latest'}}
         run: |
-          xcrun --version
+          /usr/bin/xcrun --version
