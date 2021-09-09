@@ -51,12 +51,12 @@ async function main() {
   console.log('*********************');
   console.log(testRunId);
   console.log(testOrgId);
-  console.log(cliApiKeys);
-  console.log('*********************');
 
   const apiKeys = await getAllApiKeys(testOrgId, accessToken);
 
   let cliApiKeys = apiKeys.filter(wasCreatedByTheCli(testRunId));
+  console.log(cliApiKeys);
+  console.log('*********************');
   if (!testRunId) {
     cliApiKeys = cliApiKeys.filter(isAtLeastOneDayOld);
   }
