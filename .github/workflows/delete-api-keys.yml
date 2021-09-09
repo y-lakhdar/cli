@@ -16,5 +16,5 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - name: Delete test API keys
-        run: node ./scripts/delete-api-keys.js
+      - run: npm i
+      - run: node ./scripts/delete-api-keys.js
