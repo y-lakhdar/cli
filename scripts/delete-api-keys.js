@@ -48,21 +48,14 @@ async function main() {
   const testOrgId = process.env.TEST_ORG_ID;
   const accessToken = process.env.ACCESS_TOKEN;
   const testRunId = process.env.TEST_RUN_ID;
-  console.log('*********************');
-  console.log(testRunId);
-  console.log(testOrgId);
-
   const apiKeys = await getAllApiKeys(testOrgId, accessToken);
 
   let cliApiKeys = apiKeys.filter(wasCreatedByTheCli(testRunId));
-  console.log(cliApiKeys);
-  console.log('*********************');
   if (!testRunId) {
     cliApiKeys = cliApiKeys.filter(isAtLeastOneDayOld);
   }
 
-  deleteApiKeys;
-  // (testOrgId, accessToken, cliApiKeys);
+  await deleteApiKeys(testOrgId, accessToken, cliApiKeys);
 }
 
 main();
